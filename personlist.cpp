@@ -51,7 +51,7 @@ bool PersonList::Insert(Person* person, size_t position){
 		return false;
 	if (position > _size)
 		return false;
-	for (size_t i = position; i > _size; i--)
+	for (size_t i = _size; i > position; i--)
 		_persons[i] = _persons[i-1];
 	_persons[position] = person;
 	_size++;
@@ -79,8 +79,8 @@ bool PersonList::Remove(size_t position){
 	if (position >= _size)
 		return false;
 	Person* toErase = _persons[position];
-	for (size_t i=_size - 1; i>position; i--)
-		_persons[i-1] = _persons[i];
+	for (size_t i=position; i<_size-1; i++)
+		_persons[i] = _persons[i+1];
 	_size--;
 	_persons[_size] = nullptr;
 	delete toErase;

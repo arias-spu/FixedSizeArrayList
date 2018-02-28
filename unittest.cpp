@@ -5,12 +5,11 @@
 #include <cassert>
 using std::cout;
 using std::endl;
-    0      ANNE    23
 
 int main(int argc, char* argv[]){
 	PersonList list(5);
 	assert(list.Size() == 0);
-	assert(list.Empty() == true);
+	assert(list.IsEmpty() == true);
 	assert(list.Remove(0) == false);
 	assert(list.Insert("JOHN", 18, 1) == false);
 	assert(list.Insert("JENNY", 19, 0) == true);
